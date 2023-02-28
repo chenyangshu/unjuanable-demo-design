@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+    com.unjuanable.common.extension.config.ExtensionAutoConfiguration,\
+    com.unjuanable.common.pipeline.config.PipelineAutoConfiguration,\
+    com.unjuanable.common.chain.config.FilterAutoConfiguration
+
