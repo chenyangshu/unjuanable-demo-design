@@ -26,7 +26,7 @@ public class ServiceFilterTest {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
-    private ServiceFilterChainExecutorI serviceFilterChainExecutorI;
+    private ServiceFilterChainExecutorI serviceFilterChainExecutor;
 
     /**
      * 测试服务过滤器链(责任链模式)
@@ -38,7 +38,7 @@ public class ServiceFilterTest {
         OrderRegisterResultModel orderRegisterResultModel = new OrderRegisterResultModel();
         stepContext.setModel(orderRegisterModel);
         stepContext.setRegisterResultModel(orderRegisterResultModel);
-        serviceFilterChainExecutorI.execute(stepContext);
+        serviceFilterChainExecutor.execute(stepContext);
         OrderRegisterResultModel registerResultModel = stepContext.getRegisterResultModel();
         logger.info("test_serviceFilterChain registerResultModel:{}", registerResultModel);
     }

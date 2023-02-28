@@ -2,10 +2,10 @@ package com.unjuanable.common.pipeline;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
+import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -13,7 +13,9 @@ import java.util.Objects;
 @Component
 public class ServicePipelineExecutor implements ServicePipelineExecutorI {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    @Autowired(required = false)
+
+
+    @Resource
     private Map<Class<? extends AbstractPipelineContext>,
             List<? extends ContextHandler<? super AbstractPipelineContext>>> pipelineRouteMap;
 

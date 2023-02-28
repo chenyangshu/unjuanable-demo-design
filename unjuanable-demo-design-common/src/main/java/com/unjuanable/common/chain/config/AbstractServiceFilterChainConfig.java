@@ -22,6 +22,7 @@ public abstract class AbstractServiceFilterChainConfig implements BeanFactoryPos
         appContext = applicationContext;
     }
 
+
     @Override
     public void postProcessBeanFactory(ConfigurableListableBeanFactory configurableListableBeanFactory) throws BeansException {
         configurableListableBeanFactory.registerSingleton("serviceFilterChainPipelineMap", getServiceFilterChainPipelineMap());
