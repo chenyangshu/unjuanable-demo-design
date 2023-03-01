@@ -23,7 +23,7 @@ if(conditionA){
         逻辑3
         }else{
         逻辑4
-        }
+}
 ```
 
 这种代码虽然写起来简单，但是很明显违反了面向对象的 2 个基本原则：
@@ -1476,7 +1476,7 @@ DSL的状态机显著的提升了代码的可读性和可理解性。特别是�
 **使用状态机**
 
 ```java
-    @Test
+@Test
 public void test_stateMachine(){
         StateMachine stateMachine=StateMachineFactory.get(StateMachineEnum.ACTIVITY.getCode());
         ActivityContext context=new ActivityContext();
@@ -1488,7 +1488,7 @@ public void test_stateMachine(){
         logger.info("运行活动，测试：{}",JSON.toJSONString(stateMachine.fireEvent(context.getBeforeState(),ActivityEventEnum.DOING,context)));
         context.setBeforeState(ActivityStateEnum.EDIT);
         logger.info("二次提审，测试：{}",JSON.toJSONString(stateMachine.fireEvent(context.getBeforeState(),ActivityEventEnum.CHECK_PASS,context)));
-        }
+}
 
 ```
 
