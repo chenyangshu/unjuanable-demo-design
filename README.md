@@ -307,7 +307,7 @@ public class CreatePayOrderCmdExe {
 
 **新零售商品上架场景**
 
-![image.png](img/image1.png)
+![image.png](img/image 1.png)
 
 **过程分解**
 
