@@ -1473,5 +1473,22 @@ DSL的状态机显著的提升了代码的可读性和可理解性。特别是�
 
 ![image.png](img/image9.png)
 
+**使用状态机**
 
+```java
+    @Test
+public void test_stateMachine(){
+        StateMachine stateMachine=StateMachineFactory.get(StateMachineEnum.ACTIVITY.getCode());
+        ActivityContext context=new ActivityContext();
+        context.setBeforeState(ActivityStateEnum.EDIT);
+        logger.info("提交审核，测试：{}",JSON.toJSONString(stateMachine.fireEvent(context.getBeforeState(),ActivityEventEnum.ARRAIGNMENT,context)));
+        context.setBeforeState(ActivityStateEnum.ARRAIGNMENT);
+        logger.info("审核通过，测试：{}",JSON.toJSONString(stateMachine.fireEvent(context.getBeforeState(),ActivityEventEnum.CHECK_PASS,context)));
+        context.setBeforeState(ActivityStateEnum.PASS);
+        logger.info("运行活动，测试：{}",JSON.toJSONString(stateMachine.fireEvent(context.getBeforeState(),ActivityEventEnum.DOING,context)));
+        context.setBeforeState(ActivityStateEnum.EDIT);
+        logger.info("二次提审，测试：{}",JSON.toJSONString(stateMachine.fireEvent(context.getBeforeState(),ActivityEventEnum.CHECK_PASS,context)));
+        }
+
+```
 
