@@ -307,13 +307,13 @@ public class CreatePayOrderCmdExe {
 
 **新零售商品上架场景**
 
-![image.png](img/image 1.png)
+![image.png](img/image1.png)
 
 **过程分解**
 
 像这么复杂的业务场景，我们可以通过分而治之来分解问题。那如何分解问题和抽象问题？知道金字塔原理的应该知道，此处，我们可以使用结构化分解将问题解构成一个有层级的金字塔结构：
 
-![image.png](img/image 2.png)
+![image.png](img/image2.png)
 
 按照这种分解写的代码，就像一本书，目录和内容清晰明了。通过组合模式将流程分门别类组合起来
 
@@ -715,11 +715,11 @@ public class PaymentExecutorTest {
 
 **短信活动状态转移场景**
 
-![image.png](img/image 3.png)
+![image.png](img/image3.png)
 
 **商品订单状态流转场景**
 
-![image.png](img/image 4.png)
+![image.png](img/image4.png)
 
 **状态机定义**：
 
@@ -733,7 +733,7 @@ public class PaymentExecutorTest {
 
 简而言之，状态机是由事件、状态、动作三大部分组成。三者的关系是：事件触发状态的转移，状态的转移触发后续动作的执行。其中动作不是必须的，也可以只进行状态转移，不进行任何操作。
 
-![image.png](img/image 5.png)
+![image.png](img/image5.png)
 
 ## 基于状态模式实现的状态机
 
@@ -1458,20 +1458,20 @@ public class ActivityStateMachine implements ApplicationListener<ContextRefreshe
 
 - StateMachine：状态机
 
-![image.png](img/image 6.png)
+![image.png](img/image6.png)
 
 整个状态机的核心语义模型（Semantic Model）也很简单，就是如下图所示：
 
-![image.png](img/image 7.png)
+![image.png](img/image7.png)
 
 可以看到，这种Internal
 DSL的状态机显著的提升了代码的可读性和可理解性。特别是在相对复杂的业务状态流转中，比如下图就是我们用cola-statemachine生成的我们实际项目中的plantUML图。如果没有状态机的支持，像这样的业务代码将会很难看懂和维护。
 
-![image.png](img/image 8.png)
+![image.png](img/image8.png)
 
 我们可以使用在线PlantUML可视化状态机流转图：[https://www.planttext.com/](https://www.planttext.com/)
 
-![image.png](img/image 9.png)
+![image.png](img/image9.png)
 
 
 
