@@ -19,13 +19,9 @@ import java.math.BigDecimal;
 @SpringBootTest
 public class PaymentTest {
 
-    //    @Autowired
-//    private PaymentClientFactory paymentClientFactory;
     @Autowired
     private StrategyFactory<String, IPaymentClient> paymentClientStrategyFactory;
 
-    @Autowired
-    private ServiceSelectorExecutorI serviceSelectorExecutorI;
 
 
     /**
@@ -38,10 +34,11 @@ public class PaymentTest {
         request.setTradeNo("1");
         request.setTotalFee(new BigDecimal("100"));
         request.setPayChannel(PayChannelEnum.WECHAT_PAY.getCode());
-//        CreatePayOrderResponse response = paymentClientFactory.getPaymentClient(request.getPayChannel()).pay(request);
         paymentClientStrategyFactory.getStrategy(request.getPayChannel()).pay(request);
     }
 
+    @Autowired
+    private ServiceSelectorExecutorI serviceSelectorExecutorI;
 
     /**
      * 测试创建支付订单(扩展点)
@@ -53,7 +50,8 @@ public class PaymentTest {
         request.setTradeNo("1");
         request.setTotalFee(new BigDecimal("100"));
         request.setPayChannel(PayChannelEnum.ALI_PAY.getCode());
-        CreatePayOrderResponse response = serviceSelectorExecutorI.exeReturnValue(IPaymentExtPt.class, () -> request.getPayChannel(), ex -> ex.pay(request));
+        CreatePayOrderResponse response = serviceSelectorExecutorI.exeReturnValue(IPaymentExtPt.class,
+                () -> request.getPayChannel(), ex -> ex.pay(request));
     }
 
 

@@ -7,7 +7,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class StrategyFactoryConfig {
 
-
     @Bean
     public StrategyFactory<String, IPaymentClient> paymentClientStrategyFactory() {
         return new StrategyFactory(IPaymentClient.class);

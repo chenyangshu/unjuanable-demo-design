@@ -12,9 +12,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 public abstract class AbstractPaymentExt<T extends Context> implements IPaymentExtPt {
-
     protected final Logger log = LoggerFactory.getLogger(this.getClass());
-
 
     /**
      * 获取验证器

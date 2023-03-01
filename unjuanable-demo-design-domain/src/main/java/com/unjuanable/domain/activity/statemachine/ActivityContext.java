@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class ActivityContext {
-    String operator = "frank";
+    String operator = "tim";
     Long entityId = 1l;
 
     Enum<ActivityStateEnum> beforeState;
