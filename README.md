@@ -23,7 +23,7 @@ if(conditionA){
         逻辑3
         }else{
         逻辑4
-        }
+}
 ```
 
 这种代码虽然写起来简单，但是很明显违反了面向对象的 2 个基本原则：
@@ -302,6 +302,14 @@ public class CreatePayOrderCmdExe {
 ```
 
 # 业务流程的编排
+
+说到业务流程编排，可能有同学会想到使用一些流程引擎或者工作流引擎工具来辅助我们实现分解业务流程。
+
+本质上来讲，这些辅助手段做的都是一个pipeline的处理流程，没有其它。因此，我建议此处最好保持KISS（Keep It Simple and Stupid），即最好是什么工具都不要用，次之是用一个极简的Pipeline模式，最差是使用像流程引擎这样的重方法。
+
+除非你的应用有极强的流程可视化和编排的诉求，否则我非常不推荐使用流程引擎等工具。第一，它会引入额外的复杂度，特别是那些需要持久化状态的流程引擎；第二，它会割裂代码，导致阅读代码的不顺畅。
+
+
 
 ## 组合模式
 
@@ -1476,7 +1484,7 @@ DSL的状态机显著的提升了代码的可读性和可理解性。特别是�
 **使用状态机**
 
 ```java
-    @Test
+@Test
 public void test_stateMachine(){
         StateMachine stateMachine=StateMachineFactory.get(StateMachineEnum.ACTIVITY.getCode());
         ActivityContext context=new ActivityContext();
@@ -1488,7 +1496,7 @@ public void test_stateMachine(){
         logger.info("运行活动，测试：{}",JSON.toJSONString(stateMachine.fireEvent(context.getBeforeState(),ActivityEventEnum.DOING,context)));
         context.setBeforeState(ActivityStateEnum.EDIT);
         logger.info("二次提审，测试：{}",JSON.toJSONString(stateMachine.fireEvent(context.getBeforeState(),ActivityEventEnum.CHECK_PASS,context)));
-        }
+}
 
 ```
 
